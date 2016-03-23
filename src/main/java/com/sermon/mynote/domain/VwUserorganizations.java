@@ -23,10 +23,15 @@ public class VwUserorganizations implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -228958903428769102L;
+	
+	private int orguserid;
+	private int organizationId;
 	private int userid;
 	private String username;
 	private String organizationName;
 	private String cityName;
+	
+
 	private String stateName;
 	private String countryName;
 	private String zipcode;
@@ -35,17 +40,18 @@ public class VwUserorganizations implements java.io.Serializable {
 	}
 
 	public VwUserorganizations(int userid, String username, String cityName,
-			String stateName, String countryName) {
+			String stateName, String countryName,int organizationId) {
 		this.userid = userid;
 		this.username = username;
 		this.cityName = cityName;
 		this.stateName = stateName;
 		this.countryName = countryName;
+		this.organizationId=organizationId;
 	}
 
 	public VwUserorganizations(int userid, String username,
 			String organizationName, String cityName, String stateName,
-			String countryName, String zipcode) {
+			String countryName, String zipcode,int organizationId) {
 		this.userid = userid;
 		this.username = username;
 		this.organizationName = organizationName;
@@ -53,10 +59,20 @@ public class VwUserorganizations implements java.io.Serializable {
 		this.stateName = stateName;
 		this.countryName = countryName;
 		this.zipcode = zipcode;
+		this.organizationId=organizationId;
 	}
    
 	@Id
-	@Column(name = "userid")
+	@Column(name = "orguserid")
+	public int getOrguserid() {
+		return orguserid;
+	}
+
+	public void setOrguserid(int orguserid) {
+		this.orguserid = orguserid;
+	}
+	
+	
 	public int getUserid() {
 		return this.userid;
 	}
@@ -113,6 +129,14 @@ public class VwUserorganizations implements java.io.Serializable {
 		this.zipcode = zipcode;
 	}
 
+	public int getorganizationId() {
+		return organizationId;
+	}
+
+	public void setorganizationId(int organizationId) {
+		this.organizationId = organizationId;
+	}
+
 	public boolean equals(Object other) {
 		if ((this == other))
 			return true;
@@ -146,7 +170,9 @@ public class VwUserorganizations implements java.io.Serializable {
 						.getCountryName().equals(castOther.getCountryName())))
 				&& ((this.getZipcode() == castOther.getZipcode()) || (this
 						.getZipcode() != null && castOther.getZipcode() != null && this
-						.getZipcode().equals(castOther.getZipcode())));
+						.getZipcode().equals(castOther.getZipcode())))
+						
+			    &&     (this.getorganizationId() == castOther.getorganizationId());
 	}
 
 	public int hashCode() {
@@ -169,6 +195,9 @@ public class VwUserorganizations implements java.io.Serializable {
 						.hashCode());
 		result = 37 * result
 				+ (getZipcode() == null ? 0 : this.getZipcode().hashCode());
+		
+		result = 37 * result + this.getorganizationId();
+		
 		return result;
 	}
 

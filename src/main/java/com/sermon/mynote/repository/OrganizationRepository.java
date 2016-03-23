@@ -12,4 +12,6 @@ public interface OrganizationRepository extends PagingAndSortingRepository<Organ
 
 	
 	public List<Organization> findChurchesByUser();
+	
+
 }

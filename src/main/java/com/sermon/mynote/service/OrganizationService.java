@@ -9,4 +9,5 @@ public interface OrganizationService {
 	
 	public List<Organization> findChurchesByOrganization();
 
+
 }

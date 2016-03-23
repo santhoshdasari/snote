@@ -11,15 +11,27 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
 
+ <!--  
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver" />
       <property name="url" value="jdbc:mysql://localhost:3306/NoteDB" />
       <property name="username" value="root" />
       <property name="password" value="" />
    </bean>
-
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://localhost:3306/NoteDB" />
+      <property name="username" value="root" />
+      <property name="password" value="" />
+   </bean>
+  -->  
   
-    
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+      <property name="url" value="jdbc:mysql://notedb.ckjfeircshnl.us-west-2.rds.amazonaws.com:3306/notedb" />
+      <property name="username" value="snote" />
+      <property name="password" value="sermonnote" />
+   </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="emf"/>
@@ -41,7 +53,7 @@
                 <prop key="hibernate.max_fetch_depth">3</prop>
                 <prop key="hibernate.jdbc.fetch_size">50</prop>
                 <prop key="hibernate.jdbc.batch_size">10</prop>
-                <prop key="hibernate.show_sql">false</prop>              
+                <prop key="hibernate.show_sql">true</prop>              
             </props>        
         </property>
     </bean>    

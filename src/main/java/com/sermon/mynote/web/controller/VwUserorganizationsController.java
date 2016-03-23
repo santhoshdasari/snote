@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sermon.mynote.domain.VwUserorganizations;
 import com.sermon.mynote.service.VwUserorganizationsService;
 
-@RequestMapping("/orglist")
+@RequestMapping("/orglistuser")
 @Controller
 public class VwUserorganizationsController {
 
@@ -23,7 +23,7 @@ public class VwUserorganizationsController {
 	
 	final Logger logger = LoggerFactory.getLogger(organizationController.class);
 	
-	@RequestMapping(value = "/rest/church/users/{id}", method = RequestMethod.GET, produces="application/json")
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET, produces="application/json")
 	@ResponseBody
 	public List<VwUserorganizations> getChurchesByOrganization(@PathVariable int id) {	 
 		logger.info("Listing contacts");	

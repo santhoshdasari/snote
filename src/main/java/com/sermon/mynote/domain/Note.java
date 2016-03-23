@@ -19,6 +19,10 @@ import javax.persistence.Table;
 @Table(name = "note")
 public class Note implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer noteId;
 	private int authorId;
 	private String title;
@@ -28,6 +32,16 @@ public class Note implements java.io.Serializable {
 	private Date eventTime;
 	private Integer categoryId;
 	private String keywords;
+	private Integer OrganizationId;
+	private String authorName;
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
 
 	public Note() {
 	}
@@ -37,9 +51,8 @@ public class Note implements java.io.Serializable {
 		this.title = title;
 	}
 
-	public Note(int authorId, String title, String subTitle,
-			String introduction, Date eventDate, Date eventTime,
-			Integer categoryId, String keywords) {
+	public Note(int authorId, String title, String subTitle, String introduction, Date eventDate, Date eventTime,
+			Integer categoryId, String keywords, Integer OrganizationId) {
 		this.authorId = authorId;
 		this.title = title;
 		this.subTitle = subTitle;
@@ -48,8 +61,9 @@ public class Note implements java.io.Serializable {
 		this.eventTime = eventTime;
 		this.categoryId = categoryId;
 		this.keywords = keywords;
+		this.OrganizationId = OrganizationId;
 	}
-   
+
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "NoteId")
@@ -109,6 +123,7 @@ public class Note implements java.io.Serializable {
 		this.eventTime = eventTime;
 	}
 
+	@Column(name = "NoteCategoryId")
 	public Integer getCategoryId() {
 		return this.categoryId;
 	}
@@ -123,6 +138,14 @@ public class Note implements java.io.Serializable {
 
 	public void setKeywords(String keywords) {
 		this.keywords = keywords;
+	}
+
+	public Integer getOrganizationId() {
+		return this.OrganizationId;
+	}
+
+	public void setOrganizationId(Integer organizationId) {
+		this.OrganizationId = organizationId;
 	}
 
 }
